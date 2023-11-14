@@ -1,0 +1,9 @@
+PROCEDURE "get_interaction_item_info" (
+    in im_intheader_id INTEGER default 2,
+    out result "APP_INTERACTIONS_INTERACTIONS_ITEMS")
+    LANGUAGE SQLSCRIPT
+    SQL SECURITY INVOKER
+    READS SQL DATA AS
+BEGIN
+    result = SELECT * FROM "APP_INTERACTIONS_INTERACTIONS_ITEMS" WHERE intheader_id = :im_intheader_id;
+END
